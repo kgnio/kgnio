@@ -3,16 +3,17 @@ name: Generate Snake Animation 🐍
 on:
   schedule:
     - cron: "0 0 * * *" # her gece 00:00'da çalışır
-  workflow_dispatch: # manuel başlatılabilir
+  workflow_dispatch:      # manuel çalıştırma desteği
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Git config
+      - name: Git config (for pushing)
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
@@ -25,7 +26,7 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg
 
-      - name: Deploy SVG to output branch
+      - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
