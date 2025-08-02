@@ -2,13 +2,16 @@ name: Generate Snake Animation 🐍
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    - cron: "0 0 * * *"  # Her gece saat 00:00'da çalışır
+  workflow_dispatch:      # Manuel tetiklemeye izin verir
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - uses: Platane/snk@v3
         with:
           github_user_name: kgnio
