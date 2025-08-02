@@ -35,7 +35,7 @@ I write code that writes code.
 ## 🐍 Contribution Snake
 
 <p align="center">
- ![Snake animation](https://raw.githubusercontent.com/kgnio/kgnio/output/github-contribution-grid-snake.svg)
+![Snake animation](https://raw.githubusercontent.com/kgnio/kgnio/output/github-contribution-grid-snake.svg)
 </p>
 
 ---
