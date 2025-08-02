@@ -34,9 +34,11 @@ I write code that writes code.
 
 ## 🐍 Contribution Snake
 
-<p align="center">
-![Snake animation](https://raw.githubusercontent.com/kgnio/kgnio/output/github-contribution-grid-snake.svg)
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kgnio/kgnio/output/github-contribution-grid-snake-dark.svg" />
+  <img alt="snake animation" src="https://raw.githubusercontent.com/kgnio/kgnio/output/github-contribution-grid-snake.svg" />
+</picture>
+
 
 ---
 
