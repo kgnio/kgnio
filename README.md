@@ -35,12 +35,12 @@ I write code that writes code.
 ## 🐍 Contribution Snake
 
 <p align="center">
-  <img src="https://github.com/kagan-dev/kagan-dev/blob/output/github-contribution-grid-snake.svg" alt="Snake animation" />
+  <img src="https://github.com/kgnio/kgnio/blob/output/github-contribution-grid-snake.svg" alt="Snake animation" />
 </p>
 
 ---
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=kagan-dev&theme=dracula&cache=off)](https://github.com/ryo-ma/github-profile-trophy)
+[![trophy](https://github-profile-trophy.vercel.app/?username=kgnio&theme=dracula&cache=off)](https://github.com/ryo-ma/github-profile-trophy)
 
 ---
 
@@ -62,5 +62,5 @@ I write code that writes code.
 ## 👀 Profile Views
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=kagan-dev&label=Profile%20views&color=2ecc71&style=flat" alt="Profile Views" />
+  <img src="https://komarev.com/ghpvc/?username=kgnio&label=Profile%20views&color=2ecc71&style=flat" alt="Profile Views" />
 </p>
