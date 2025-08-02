@@ -2,8 +2,8 @@ name: Generate Snake Animation 🐍
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    - cron: "0 0 * * *" # her gece 00:00'da çalışır
+  workflow_dispatch: # manuel başlatılabilir
 
 jobs:
   generate:
@@ -12,19 +12,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Git Config (optional)
+      - name: Git config
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
-      - uses: Platane/snk@v3
+      - name: Generate SVG with Platane/snk
+        uses: Platane/snk@v3
         with:
           github_user_name: kgnio
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg
 
-      - name: Push to GitHub
+      - name: Deploy SVG to output branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
