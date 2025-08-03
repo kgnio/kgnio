@@ -1,8 +1,7 @@
 <!-- Heading -->
 <h3 align="center">
-  <marquee behavior="alternate" scrollamount="5" direction="left" width="100%">
-    <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px" />
-    &nbsp;Hi there! I'm <strong>Kagan</strong> 👨‍💻
+  <marquee behavior="alternate" scrollamount="6">
+    👨‍💻 I'm <strong>Kagan</strong> — I automate workflows, build bots, and love clean backend architecture ⚡
   </marquee>
 </h3>
 
