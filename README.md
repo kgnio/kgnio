@@ -1,8 +1,11 @@
 <!-- Heading -->
 <h3 align="center">
-  <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px" />
-  Hi there! I'm Kagan 👨‍💻
+  <marquee behavior="alternate" scrollamount="5" direction="left" width="100%">
+    <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px" />
+    &nbsp;Hi there! I'm <strong>Kagan</strong> 👨‍💻
+  </marquee>
 </h3>
+
 
 ---
 
