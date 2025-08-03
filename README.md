@@ -6,17 +6,17 @@
 
 ---
 
-✨ I'm a full-stack developer who loves automation, web design, GitHub bots, and creative backend tooling.  
-I write code that writes code.
+✨ I'm a full-stack developer who enjoys building developer tools, automating workflows, and crafting elegant full-stack solutions.  
+I write code that helps other developers write better code.
 
-### 🔥 I’m passionate about:
-- 🚀 Building full-stack websites  
-- 🛠️ Automating GitHub workflows (fork, PR, Docker, Action runner)  
-- ⚡ Creating smart developer tools & bots  
-- 🌍 Open source contributions
+### 🔥 I’m focused on:
+- 🚀 Building clean, scalable full-stack applications  
+- 🛠️ Automating GitHub workflows (forking, PRs, CI/CD, Docker)  
+- 🤖 Developing bots and smart dev tools  
+- 🌍 Contributing to open-source in meaningful ways
 
 - 💬 Ask me about: **Node.js**, **TypeScript**, **GitHub Actions**, **Docker**  
-- 🎯 Goal for 2025: **Automate 1000 repos with smart bots** 😎
+- 🎯 My 2025 goal: **Deliver high-impact automations to open-source projects**
 
 ---
 
@@ -43,7 +43,7 @@ I write code that writes code.
 
 ---
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=kgnio&theme=dracula&cache=off)](https://github.com/ryo-ma/github-profile-trophy)
+[![trophy](https://github-profile-trophy.vercel.app/?username=kgnio&theme=dracula&margin-w=10&no-frame=true&no-bg=true)](https://github.com/ryo-ma/github-profile-trophy)
 
 ---
 
@@ -58,7 +58,6 @@ I write code that writes code.
   <img src="https://img.shields.io/badge/maintained-yes-brightgreen.svg" alt="Maintained" />
   <img src="https://img.shields.io/bundlephobia/minzip/sprinklepack" alt="Bundle size" />
 </p>
-
 
 ---
 
