@@ -17,7 +17,7 @@ I write code that helps other developers write better code.
 - 🤖 Developing bots and smart dev tools  
 - 🌍 Contributing to open-source in meaningful ways
 
-- 💬 Ask me about: **Node.js**, **TypeScript**, **GitHub Actions**, **Docker**  
+- 💬 Ask me about: **Node.js**, **TypeScript**, **React**, **Npm**, **GitHub Actions**, **Docker**  
 - 🎯 My 2025 goal: **Deliver high-impact automations to open-source projects**
 
 ---
