@@ -23,7 +23,7 @@ I write code that helps other developers write better code.
 ---
 
 ## 🚀 Technologies I Use
-
+<h3 align="center">
 ![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?style=for-the-badge&logo=typescript)
 ![NodeJS](https://img.shields.io/badge/-NodeJS-339933?style=for-the-badge&logo=nodedotjs)
 ![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react)
@@ -31,7 +31,7 @@ I write code that helps other developers write better code.
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker)
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions)
 ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=mongodb)
-
+</h3>
 ---
 
 ## 🐍 Contribution Snake
