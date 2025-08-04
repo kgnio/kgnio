@@ -23,15 +23,16 @@ I write code that helps other developers write better code.
 ---
 
 ## 🚀 Technologies I Use
-<h3 align="center">
+
 ![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?style=for-the-badge&logo=typescript)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![NodeJS](https://img.shields.io/badge/-NodeJS-339933?style=for-the-badge&logo=nodedotjs)
 ![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react)
 ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=for-the-badge&logo=nextdotjs)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker)
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions)
 ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=mongodb)
-</h3>
+
 ---
 
 ## 🐍 Contribution Snake
