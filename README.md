@@ -55,10 +55,10 @@ I write code that helps other developers write better code.
   <a href="https://www.npmjs.com/package/sprinklepack">
     <img src="https://img.shields.io/npm/v/sprinklepack" alt="Current npm version of sprinklepack" />
     <img src="https://img.shields.io/npm/dw/sprinklepack" alt="Weekly downloads for sprinklepack" />
+    <img src="https://img.shields.io/npm/l/sprinklepack" alt="License type of sprinklepack" />
+    <img src="https://img.shields.io/badge/maintained-yes-brightgreen.svg" alt="Maintenance status badge" />
+    <img src="https://img.shields.io/bundlephobia/minzip/sprinklepack" alt="Minified + gzipped size of sprinklepack" />
   </a>
-  <img src="https://img.shields.io/npm/l/sprinklepack" alt="License type of sprinklepack" />
-  <img src="https://img.shields.io/badge/maintained-yes-brightgreen.svg" alt="Maintenance status badge" />
-  <img src="https://img.shields.io/bundlephobia/minzip/sprinklepack" alt="Minified + gzipped size of sprinklepack" />
 </p>
 
 
