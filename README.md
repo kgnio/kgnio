@@ -1,43 +1,59 @@
-<!-- Heading -->
-<h3 align="center">
-  <marquee behavior="alternate" scrollamount="6">
-    👨‍💻 I'm <strong>Kagan</strong> — I automate workflows, build bots, and love clean backend architecture ⚡
-  </marquee>
-</h3>
-
+<!-- Header -->
+<h2 align="center">👋 Hi, I'm <strong>Kagan</strong></h2>
+<h4 align="center">⚡ Automating workflows • Building bots • Crafting clean backend architectures</h4>
 
 ---
 
-✨ I'm a full-stack developer who enjoys building developer tools, automating workflows, and crafting elegant full-stack solutions.  
-I write code that helps other developers write better code.
+## ✨ About Me  
+I'm a **full-stack developer** passionate about building developer tools, automating workflows, and crafting elegant full-stack solutions.  
+I write code that helps other developers write better code.  
 
-### 🔥 I’m focused on:
-- 🚀 Building clean, scalable full-stack applications  
-- 🛠️ Automating GitHub workflows (forking, PRs, CI/CD, Docker)  
-- 🤖 Developing bots and smart dev tools  
-- 🌍 Contributing to open-source in meaningful ways
+---
 
-- 💬 Ask me about: **Node.js**, **TypeScript**, **React**, **Npm**, **GitHub Actions**, **Docker**  
-- 🎯 My 2025 goal: **Deliver high-impact automations to open-source projects**
+## 🔥 What I’m Focused On
+- 🚀 Building **clean, scalable full-stack applications**  
+- 🛠️ Automating **GitHub workflows** (forking, PRs, CI/CD, Docker)  
+- 🤖 Developing **bots and smart dev tools**  
+- 🌍 Contributing to **open-source projects**  
+
+💬 Ask me about: **Node.js**, **TypeScript**, **React**, **Npm**, **GitHub Actions**, **Docker**  
+🎯 2025 Goal: **Bring automation to 100+ open-source projects**  
 
 ---
 
 ## 🚀 Technologies I Use
 
+### 🌐 Frontend
+![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react)
+![Next.js](https://img.shields.io/badge/-Next.js-000000?style=for-the-badge&logo=nextdotjs)
+
+### ⚙️ Backend
+![NodeJS](https://img.shields.io/badge/-NodeJS-339933?style=for-the-badge&logo=nodedotjs)
+![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?style=for-the-badge&logo=typescript)
+![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=mongodb)
+
+### 🚀 DevOps & Tools
+![Docker](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker)
+![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions)
+
+---
+
+## 📌 Featured Projects
+- [**Sprinkle Pack**](https://www.npmjs.com/package/sprinklepack) — 🎨 VS Code theme pack published on npm  
+- [**GitHub Automation Bot**](#) — 🤖 Automates forks, PRs & workflows  
+- [**Clean Backend Starter**](#) — ⚡ A boilerplate for scalable backend apps  
+
+---
+
+## 🏆 GitHub Highlights
 <p align="center">
-  <img src="https://img.shields.io/badge/-TypeScript-007ACC?style=for-the-badge&logo=typescript" />
-  <img src="https://img.shields.io/badge/-NodeJS-339933?style=for-the-badge&logo=nodedotjs" />
-  <img src="https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/-Next.js-000000?style=for-the-badge&logo=nextdotjs" />
-  <img src="https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker" />
-  <img src="https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions" />
-  <img src="https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=mongodb" />
+  <img src="https://github-readme-stats.vercel.app/api?username=kgnio&show_icons=true&theme=dracula" height="150" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kgnio&layout=compact&theme=dracula" height="150" />
 </p>
 
 ---
 
 ## 🐍 Contribution Snake
-
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kgnio/kgnio/output/github-contribution-grid-snake-dark.svg" />
@@ -51,21 +67,7 @@ I write code that helps other developers write better code.
 
 ---
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/sprinklepack">
-    <img src="https://img.shields.io/npm/v/sprinklepack" alt="Current npm version of sprinklepack" />
-    <img src="https://img.shields.io/npm/dw/sprinklepack" alt="Weekly downloads for sprinklepack" />
-    <img src="https://img.shields.io/npm/l/sprinklepack" alt="License type of sprinklepack" />
-    <img src="https://img.shields.io/badge/maintained-yes-brightgreen.svg" alt="Maintenance status badge" />
-    <img src="https://img.shields.io/bundlephobia/minzip/sprinklepack" alt="Minified + gzipped size of sprinklepack" />
-  </a>
-</p>
-
-
----
-
 ## 👀 Profile Views
-
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=kgnio&label=Profile%20views&color=2ecc71&style=flat" alt="Profile Views" />
 </p>
