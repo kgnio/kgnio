@@ -26,6 +26,9 @@ I write code that helps other developers write better code.
 ### 🌐 Frontend
 ![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react)
 ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=for-the-badge&logo=nextdotjs)
+![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss)
+![Shadcn/UI](https://img.shields.io/badge/-Shadcn%2FUI-000000?style=for-the-badge&logo=shadcnui)
+![Vite](https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite)
 
 ### ⚙️ Backend
 ![NodeJS](https://img.shields.io/badge/-NodeJS-339933?style=for-the-badge&logo=nodedotjs)
@@ -35,6 +38,12 @@ I write code that helps other developers write better code.
 ### 🚀 DevOps & Tools
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker)
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions)
+![Nginx](https://img.shields.io/badge/-Nginx-009639?style=for-the-badge&logo=nginx)
+![Kubernetes](https://img.shields.io/badge/-Kubernetes-326CE5?style=for-the-badge&logo=kubernetes)
+![PM2](https://img.shields.io/badge/-PM2-2B037A?style=for-the-badge&logo=pm2)
+![Git](https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git)
+![Linux](https://img.shields.io/badge/-Linux-FCC624?style=for-the-badge&logo=linux)
+![Bash](https://img.shields.io/badge/-Bash-4EAA25?style=for-the-badge&logo=gnubash)
 
 ---
 
