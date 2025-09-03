@@ -64,10 +64,6 @@ I write code that helps other developers write better code.
 
 ---
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=kgnio&theme=dracula&margin-w=10&no-frame=true&no-bg=true)](https://github.com/ryo-ma/github-profile-trophy)
-
----
-
 ## 🏆 GitHub Highlights
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kgnio&layout=compact&theme=dracula" height="150" />
