@@ -21,7 +21,7 @@ I write code that helps other developers write better code.
 
 ---
 
-## 🛠️ Tech Stack (Dark & Minimal)
+## 🛠️ Tech Stack
 
 ```
 Frontend  : React · Next.js · TypeScript · Tailwind CSS · shadcn/ui
@@ -76,9 +76,26 @@ Other     : Git · Linux · Bash · REST APIs · Webhooks · CI/CD
 ---
 
 ## 🏆 GitHub Highlights
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kgnio&layout=compact&theme=dracula" height="150" />
-</p>
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img 
+          src="https://github-readme-stats.vercel.app/api/top-langs/?username=kgnio&layout=compact&theme=dracula" 
+          height="150"
+        />
+      </td>
+      <td align="center">
+        <img 
+          src="https://komarev.com/ghpvc/?username=kgnio&label=Profile%20Views&color=2ecc71&style=for-the-badge" 
+          height="40"
+        />
+      </td>
+    </tr>
+  </table>
+</div>
+
 
 ---
 
