@@ -44,6 +44,7 @@ Other     : Git · Linux · Bash · REST APIs · Webhooks · CI/CD
 ### ⚙️ Backend
 ![NodeJS](https://img.shields.io/badge/-NodeJS-339933?style=for-the-badge&logo=nodedotjs)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?style=for-the-badge&logo=typescript)
+![Javascript](https://img.shields.io/badge/-Javascript-007ACC?style=for-the-badge&logo=javascript)
 ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=mongodb)
 
 ### 🚀 DevOps & Tools
