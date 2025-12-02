@@ -122,13 +122,6 @@ Other     : Git · Linux · Bash · REST APIs · Webhooks · CI/CD
 
 ---
 
-## 🏆 GitHub Highlights
-
-<p align="center"> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kgnio&layout=compact&theme=dracula" height="150" /> </p>
-
-
----
-
 ## 👀 Profile Views
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=kgnio&label=Profile%20views&color=2ecc71&style=flat" alt="Profile Views" />
