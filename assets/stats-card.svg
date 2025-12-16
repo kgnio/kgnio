@@ -24,7 +24,7 @@
   <!-- Left -->
   <g transform="translate(44,56)">
     <text x="0" y="0" fill="#E5E7EB" font-size="34" font-weight="700"
-          font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">1,091</text>
+          font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">1,092</text>
     <text x="0" y="26" fill="#9CA3AF" font-size="14"
           font-family="ui-sans-serif, system-ui">Total Contributions</text>
 
@@ -59,7 +59,7 @@
 
     <g transform="translate(0,44)">
       <rect x="0" y="0" width="220" height="54" rx="12" fill="#0A0F1A" stroke="#1F2937"/>
-      <path d="M 8.00 40.41 L 15.03 41.53 L 22.07 34.82 L 29.10 32.59 L 36.14 8.00 L 43.17 41.53 L 50.21 41.53 L 57.24 23.65 L 64.28 27.00 L 71.31 33.71 L 78.34 29.24 L 85.38 22.53 L 92.41 39.29 L 99.45 32.59 L 106.48 19.18 L 113.52 31.47 L 120.55 41.53 L 127.59 19.18 L 134.62 29.24 L 141.66 41.53 L 148.69 41.53 L 155.72 12.47 L 162.76 25.88 L 169.79 22.53 L 176.83 34.82 L 183.86 29.24 L 190.90 38.18 L 197.93 41.53 L 204.97 21.41 L 212.00 34.82" stroke="url(#accent)" stroke-width="2.4" fill="none" />
+      <path d="M 8.00 40.41 L 15.03 41.53 L 22.07 34.82 L 29.10 32.59 L 36.14 8.00 L 43.17 41.53 L 50.21 41.53 L 57.24 23.65 L 64.28 27.00 L 71.31 33.71 L 78.34 29.24 L 85.38 22.53 L 92.41 39.29 L 99.45 32.59 L 106.48 19.18 L 113.52 31.47 L 120.55 41.53 L 127.59 19.18 L 134.62 29.24 L 141.66 41.53 L 148.69 41.53 L 155.72 12.47 L 162.76 25.88 L 169.79 22.53 L 176.83 34.82 L 183.86 29.24 L 190.90 38.18 L 197.93 41.53 L 204.97 21.41 L 212.00 33.71" stroke="url(#accent)" stroke-width="2.4" fill="none" />
     </g>
   </g>
 </svg>
