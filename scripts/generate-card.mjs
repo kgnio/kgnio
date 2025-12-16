@@ -192,8 +192,6 @@ function svgCard({
     { icon: "list", label: "Contributed to:", value: compact(contributedTo) },
   ];
 
-  const totalInline = `${total.toLocaleString("en-US")}  Total contributions`;
-
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none"
      xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub stats card">
@@ -247,9 +245,13 @@ function svgCard({
       <text x="${chartW - chartPad}" y="18" text-anchor="end" fill="#6B7280" font-size="11" font-family="ui-sans-serif, system-ui">max ${max30}</text>
     </g>
 
-    <g transform="translate(0,126)">
-      <text x="0" y="0" fill="#E5E7EB" font-size="30" font-weight="760"
-            font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${totalInline}</text>
+<g transform="translate(0,126)">
+  <text x="0" y="0" fill="#E5E7EB" font-size="34" font-weight="800"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${total.toLocaleString("en-US")}</text>
+
+  <text x="112" y="0" fill="#9CA3AF" font-size="14" font-weight="600"
+        font-family="ui-sans-serif, system-ui">Total contributions</text>
+
 
       <text x="0" y="28" fill="#6B7280" font-size="12" font-family="ui-sans-serif, system-ui">Last active</text>
       <text x="74" y="28" fill="#E5E7EB" font-size="12" font-weight="650" font-family="ui-sans-serif, system-ui">${lastActiveText}</text>
