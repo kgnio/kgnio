@@ -26,6 +26,23 @@ async function graphql(query, variables) {
   return json.data;
 }
 
+function clamp(n, a, b) {
+  return Math.max(a, Math.min(b, n));
+}
+
+function fmtISO(dateStr) {
+  return dateStr || "-";
+}
+
+function compact(n) {
+  if (!Number.isFinite(n)) return "0";
+  const abs = Math.abs(n);
+  if (abs >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(1)}b`;
+  if (abs >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}m`;
+  if (abs >= 1_000) return `${(n / 1_000).toFixed(1)}k`;
+  return `${n}`;
+}
+
 function streakFromDailyCounts(dailyCounts) {
   let total = 0;
   let current = 0;
@@ -57,14 +74,6 @@ function streakFromDailyCounts(dailyCounts) {
   return { total, current, longest, lastActive };
 }
 
-function clamp(n, a, b) {
-  return Math.max(a, Math.min(b, n));
-}
-
-function fmtISO(dateStr) {
-  return dateStr || "-";
-}
-
 function areaPath(values, width, height, pad = 10) {
   const max = Math.max(1, ...values);
   const w = width - pad * 2;
@@ -89,38 +98,65 @@ function areaPath(values, width, height, pad = 10) {
   return { lineD, areaD, max };
 }
 
-function svgCard({ total, current, longest, lastActive, series30 }) {
-  const W = 960;
-  const H = 240;
+async function sumStars() {
+  let stars = 0;
+  let cursor = null;
+
+  while (true) {
+    const q = `
+      query($login: String!, $cursor: String) {
+        user(login: $login) {
+          repositories(first: 100, after: $cursor, ownerAffiliations: OWNER, isFork: false) {
+            nodes { stargazerCount }
+            pageInfo { hasNextPage endCursor }
+          }
+        }
+      }
+    `;
+    const data = await graphql(q, { login: username, cursor });
+    const conn = data.user.repositories;
+    for (const r of conn.nodes) stars += r.stargazerCount || 0;
+    if (!conn.pageInfo.hasNextPage) break;
+    cursor = conn.pageInfo.endCursor;
+  }
+
+  return stars;
+}
+
+function iconPath(kind) {
+  if (kind === "star") return "M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.7 6.1 20.2l1.2-6.5-4.8-4.6 6.6-.9L12 2.2z";
+  if (kind === "commit") return "M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0Zm-7 0h4m8 0h8";
+  if (kind === "pr") return "M6 4v16m0-13a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm6-14h6a2 2 0 0 1 2 2v7m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z";
+  if (kind === "issue") return "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 6v6m0 4h.01";
+  return "M4 6h16M4 10h16M4 14h16M4 18h16";
+}
+
+function svgCard({
+  total,
+  current,
+  longest,
+  lastActive,
+  series30,
+  stars,
+  commits,
+  prs,
+  issues,
+  contributedTo,
+}) {
+  const W = 1080;
+  const H = 260;
   const pad = 14;
   const r = 20;
 
-  const dividerLeft = 320;
-  const dividerRight = 640;
+  const leftDivider = 430;
+  const rightDivider = 750;
 
-  const leftX = 52;
-  const rightX = 668;
+  const leftColX = 48;
+  const leftTopY = 58;
 
-  const ringGroupX = 360;
-  const ringGroupY = 52;
-
-  const ringCX = 90;
-  const ringCY = 74;
-  const ringR = 48;
-  const ringStroke = 10;
-
-  const ringCirc = 2 * Math.PI * ringR;
-  const denom = Math.max(1, longest, current);
-  const ratio = clamp(current / denom, 0, 1);
-  const dash = `${(ratio * ringCirc).toFixed(2)} ${ringCirc.toFixed(2)}`;
-
-  const chipR = 14;
-  const chartR = 14;
-
-  const chartW = 262;
-  const chartH = 92;
+  const chartW = 340;
+  const chartH = 96;
   const chartPad = 12;
-
   const { lineD, areaD, max: max30 } = areaPath(series30, chartW, chartH, chartPad);
 
   const gridLines = 4;
@@ -129,14 +165,36 @@ function svgCard({ total, current, longest, lastActive, series30 }) {
     return y;
   });
 
-  const lastActiveText = lastActive ? fmtISO(lastActive) : "-";
+  const ringR = 52;
+  const ringStroke = 10;
+  const ringCirc = 2 * Math.PI * ringR;
+  const denom = Math.max(1, longest, current);
+  const ratio = clamp(current / denom, 0, 1);
+  const dash = `${(ratio * ringCirc).toFixed(2)} ${ringCirc.toFixed(2)}`;
+
+  const midCenterX = (leftDivider + rightDivider) / 2;
+  const midCenterY = 118;
 
   const streakTitle = `${current}-day commit streak`;
   const streakDesc = `Coding consistently for ${current} days in a row.`;
 
+  const lastActiveText = lastActive ? fmtISO(lastActive) : "-";
+
+  const listX = rightDivider + 34;
+  const listY = 74;
+  const rowH = 28;
+
+  const rows = [
+    { icon: "star", label: "Total Stars:", value: compact(stars) },
+    { icon: "commit", label: "Total Commits:", value: compact(commits) },
+    { icon: "pr", label: "Total PRs:", value: compact(prs) },
+    { icon: "issue", label: "Total Issues:", value: compact(issues) },
+    { icon: "list", label: "Contributed to:", value: compact(contributedTo) },
+  ];
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none"
-     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub pro stats card">
+     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub stats card">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="${W}" y2="${H}" gradientUnits="userSpaceOnUse">
       <stop stop-color="#070B14"/>
@@ -162,54 +220,15 @@ function svgCard({ total, current, longest, lastActive, series30 }) {
   <rect x="${pad}" y="${pad}" width="${W - pad * 2}" height="${H - pad * 2}"
         rx="${r}" fill="url(#bg)" stroke="#1F2937" filter="url(#softShadow)"/>
 
-  <path d="M${W - 320} ${pad} L${W - 120} ${pad} L${W - 40} ${H - pad} L${W - 240} ${H - pad} Z"
+  <path d="M${W - 360} ${pad} L${W - 140} ${pad} L${W - 40} ${H - pad} L${W - 260} ${H - pad} Z"
         fill="url(#accent)" opacity="0.06"/>
 
-  <line x1="${dividerLeft}" y1="52" x2="${dividerLeft}" y2="188" stroke="#1F2937"/>
-  <line x1="${dividerRight}" y1="52" x2="${dividerRight}" y2="188" stroke="#1F2937"/>
+  <line x1="${leftDivider}" y1="52" x2="${leftDivider}" y2="${H - 52}" stroke="#1F2937"/>
+  <line x1="${rightDivider}" y1="52" x2="${rightDivider}" y2="${H - 52}" stroke="#1F2937"/>
 
-  <g transform="translate(${leftX},64)">
-    <text x="0" y="0" fill="#E5E7EB" font-size="38" font-weight="750"
-          font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${total.toLocaleString("en-US")}</text>
-    <text x="0" y="28" fill="#9CA3AF" font-size="14"
-          font-family="ui-sans-serif, system-ui">Total contributions</text>
-
-    <g transform="translate(0,68)">
-      <rect x="0" y="0" width="268" height="36" rx="${chipR}" fill="#0A0F1A" stroke="#1F2937"/>
-      <text x="14" y="23" fill="#9CA3AF" font-size="12" font-family="ui-sans-serif, system-ui">Last active</text>
-      <text x="98" y="23" fill="#E5E7EB" font-size="12" font-weight="650" font-family="ui-sans-serif, system-ui">${lastActiveText}</text>
-    </g>
-
-    <text x="0" y="150" fill="#6B7280" font-size="12" font-family="ui-sans-serif, system-ui">
-      Auto-updated via GitHub Actions
-    </text>
-  </g>
-
-  <g transform="translate(${ringGroupX},${ringGroupY})">
-    <circle cx="${ringCX}" cy="${ringCY}" r="${ringR}" stroke="#1F2937" stroke-width="${ringStroke}"/>
-    <circle cx="${ringCX}" cy="${ringCY}" r="${ringR}" stroke="url(#accent)" stroke-width="${ringStroke}"
-      stroke-linecap="round" stroke-dasharray="${dash}"
-      transform="rotate(-90 ${ringCX} ${ringCY})"/>
-
-    <text x="${ringCX}" y="${ringCY + 10}" text-anchor="middle" fill="#E5E7EB"
-      font-size="36" font-weight="800" font-family="ui-sans-serif, system-ui">${current}</text>
-
-    <text x="${ringCX}" y="${ringCY + 58}" text-anchor="middle" fill="#9CA3AF"
-      font-size="14" font-family="ui-sans-serif, system-ui">${streakTitle}</text>
-
-    <text x="${ringCX}" y="${ringCY + 78}" text-anchor="middle" fill="#6B7280"
-      font-size="12" font-family="ui-sans-serif, system-ui">${streakDesc}</text>
-  </g>
-
-  <g transform="translate(${rightX},64)">
-    <text x="0" y="0" fill="#E5E7EB" font-size="38" font-weight="750"
-          font-family="ui-sans-serif, system-ui">${longest.toLocaleString("en-US")}</text>
-    <text x="0" y="28" fill="#9CA3AF" font-size="14"
-          font-family="ui-sans-serif, system-ui">Longest streak</text>
-
-    <g transform="translate(0,56)">
-      <rect x="0" y="0" width="${chartW}" height="${chartH}" rx="${chartR}" fill="#0A0F1A" stroke="#1F2937"/>
-
+  <g transform="translate(${leftColX},${leftTopY})">
+    <g>
+      <rect x="0" y="0" width="${chartW}" height="${chartH}" rx="14" fill="#0A0F1A" stroke="#1F2937"/>
       ${gridYs
         .map(
           (y) =>
@@ -220,13 +239,64 @@ function svgCard({ total, current, longest, lastActive, series30 }) {
             )}" y2="${y.toFixed(2)}" stroke="#1F2937" opacity="0.55"/>`
         )
         .join("\n")}
-
       <path d="${areaD}" fill="url(#chartFill)"/>
       <path d="${lineD}" stroke="url(#accent)" stroke-width="2.6" fill="none"/>
-
       <text x="${chartPad}" y="${chartH - 10}" fill="#6B7280" font-size="11" font-family="ui-sans-serif, system-ui">Last 30 days</text>
       <text x="${chartW - chartPad}" y="18" text-anchor="end" fill="#6B7280" font-size="11" font-family="ui-sans-serif, system-ui">max ${max30}</text>
     </g>
+
+    <g transform="translate(0,126)">
+      <text x="0" y="0" fill="#E5E7EB" font-size="40" font-weight="760"
+            font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${total.toLocaleString("en-US")}</text>
+      <text x="0" y="28" fill="#9CA3AF" font-size="14" font-family="ui-sans-serif, system-ui">Total contributions</text>
+
+      <text x="0" y="54" fill="#6B7280" font-size="12" font-family="ui-sans-serif, system-ui">Last active</text>
+      <text x="74" y="54" fill="#E5E7EB" font-size="12" font-weight="650" font-family="ui-sans-serif, system-ui">${lastActiveText}</text>
+    </g>
+
+    <text x="0" y="186" fill="#6B7280" font-size="12" font-family="ui-sans-serif, system-ui">Made by Kgnio</text>
+  </g>
+
+  <g>
+    <circle cx="${midCenterX}" cy="${midCenterY - 10}" r="${ringR}" stroke="#1F2937" stroke-width="${ringStroke}"/>
+    <circle cx="${midCenterX}" cy="${midCenterY - 10}" r="${ringR}" stroke="url(#accent)" stroke-width="${ringStroke}"
+      stroke-linecap="round" stroke-dasharray="${dash}"
+      transform="rotate(-90 ${midCenterX} ${midCenterY - 10})"/>
+
+    <text x="${midCenterX}" y="${midCenterY + 6}" text-anchor="middle" fill="#E5E7EB"
+      font-size="40" font-weight="850" font-family="ui-sans-serif, system-ui">${current}</text>
+
+    <text x="${midCenterX}" y="${midCenterY + 64}" text-anchor="middle" fill="#9CA3AF"
+      font-size="14" font-family="ui-sans-serif, system-ui">${streakTitle}</text>
+
+    <text x="${midCenterX}" y="${midCenterY + 84}" text-anchor="middle" fill="#6B7280"
+      font-size="12" font-family="ui-sans-serif, system-ui">${streakDesc}</text>
+  </g>
+
+  <g transform="translate(${listX},${listY})">
+    ${rows
+      .map((row, idx) => {
+        const y = idx * rowH;
+        const isStar = row.icon === "star";
+        const icon = row.icon === "list" ? "list" : row.icon;
+        const p = iconPath(icon);
+        const iconSvg =
+          isStar
+            ? `<path d="${p}" fill="#22C55E" opacity="0.95"/>`
+            : `<path d="${p}" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>`;
+
+        return `
+        <g transform="translate(0,${y})">
+          <g transform="translate(0,-14)">
+            <svg x="0" y="0" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              ${iconSvg}
+            </svg>
+          </g>
+          <text x="26" y="0" fill="#22C55E" font-size="13" font-weight="650" font-family="ui-sans-serif, system-ui">${row.label}</text>
+          <text x="168" y="0" fill="#86EFAC" font-size="13" font-weight="700" font-family="ui-sans-serif, system-ui">${row.value}</text>
+        </g>`;
+      })
+      .join("\n")}
   </g>
 </svg>`;
 }
@@ -236,6 +306,10 @@ async function main() {
     query($login: String!) {
       user(login: $login) {
         contributionsCollection {
+          totalCommitContributions
+          totalIssueContributions
+          totalPullRequestContributions
+          totalRepositoriesWithContributedCommits
           contributionCalendar {
             weeks {
               contributionDays {
@@ -250,17 +324,36 @@ async function main() {
   `;
 
   const data = await graphql(q, { login: username });
-  const weeks = data.user.contributionsCollection.contributionCalendar.weeks;
 
-  const daily = weeks
+  const calWeeks = data.user.contributionsCollection.contributionCalendar.weeks;
+  const daily = calWeeks
     .flatMap((w) => w.contributionDays)
     .map((d) => ({ date: d.date, count: d.contributionCount }))
     .sort((a, b) => a.date.localeCompare(b.date));
 
   const { total, current, longest, lastActive } = streakFromDailyCounts(daily);
+
   const series30 = daily.slice(-30).map((d) => d.count);
 
-  const svg = svgCard({ total, current, longest, lastActive, series30 });
+  const commits = data.user.contributionsCollection.totalCommitContributions || 0;
+  const prs = data.user.contributionsCollection.totalPullRequestContributions || 0;
+  const issues = data.user.contributionsCollection.totalIssueContributions || 0;
+  const contributedTo = data.user.contributionsCollection.totalRepositoriesWithContributedCommits || 0;
+
+  const stars = await sumStars();
+
+  const svg = svgCard({
+    total,
+    current,
+    longest,
+    lastActive,
+    series30,
+    stars,
+    commits,
+    prs,
+    issues,
+    contributedTo,
+  });
 
   const outDir = path.join(process.cwd(), "assets");
   fs.mkdirSync(outDir, { recursive: true });
