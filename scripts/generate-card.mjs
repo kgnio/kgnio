@@ -180,9 +180,9 @@ function svgCard({
 
   const lastActiveText = lastActive ? fmtISO(lastActive) : "-";
 
-  const listX = rightDivider + 34;
-  const listY = 74;
-  const rowH = 28;
+  const listX = rightDivider + 28;
+  const listY = 66;
+  const rowH = 32;
 
   const rows = [
     { icon: "star", label: "Total Stars:", value: compact(stars) },
@@ -191,6 +191,8 @@ function svgCard({
     { icon: "issue", label: "Total Issues:", value: compact(issues) },
     { icon: "list", label: "Contributed to:", value: compact(contributedTo) },
   ];
+
+  const totalInline = `${total.toLocaleString("en-US")}  Total contributions`;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none"
@@ -246,15 +248,12 @@ function svgCard({
     </g>
 
     <g transform="translate(0,126)">
-      <text x="0" y="0" fill="#E5E7EB" font-size="40" font-weight="760"
-            font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${total.toLocaleString("en-US")}</text>
-      <text x="0" y="28" fill="#9CA3AF" font-size="14" font-family="ui-sans-serif, system-ui">Total contributions</text>
+      <text x="0" y="0" fill="#E5E7EB" font-size="30" font-weight="760"
+            font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${totalInline}</text>
 
-      <text x="0" y="54" fill="#6B7280" font-size="12" font-family="ui-sans-serif, system-ui">Last active</text>
-      <text x="74" y="54" fill="#E5E7EB" font-size="12" font-weight="650" font-family="ui-sans-serif, system-ui">${lastActiveText}</text>
+      <text x="0" y="28" fill="#6B7280" font-size="12" font-family="ui-sans-serif, system-ui">Last active</text>
+      <text x="74" y="28" fill="#E5E7EB" font-size="12" font-weight="650" font-family="ui-sans-serif, system-ui">${lastActiveText}</text>
     </g>
-
-    <text x="0" y="186" fill="#6B7280" font-size="12" font-family="ui-sans-serif, system-ui">Made by Kgnio</text>
   </g>
 
   <g>
@@ -287,19 +286,20 @@ function svgCard({
 
         return `
         <g transform="translate(0,${y})">
-          <g transform="translate(0,-14)">
-            <svg x="0" y="0" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(0,-15)">
+            <svg x="0" y="0" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               ${iconSvg}
             </svg>
           </g>
-          <text x="26" y="0" fill="#22C55E" font-size="13" font-weight="650" font-family="ui-sans-serif, system-ui">${row.label}</text>
-          <text x="168" y="0" fill="#86EFAC" font-size="13" font-weight="700" font-family="ui-sans-serif, system-ui">${row.value}</text>
+          <text x="30" y="0" fill="#22C55E" font-size="14.5" font-weight="650" font-family="ui-sans-serif, system-ui">${row.label}</text>
+          <text x="186" y="0" fill="#86EFAC" font-size="14.5" font-weight="800" font-family="ui-sans-serif, system-ui">${row.value}</text>
         </g>`;
       })
       .join("\n")}
   </g>
 </svg>`;
 }
+
 
 async function main() {
   const q = `
