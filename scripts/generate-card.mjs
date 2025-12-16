@@ -18,7 +18,9 @@ async function graphql(query, variables) {
     },
     body: JSON.stringify({ query, variables }),
   });
+
   if (!res.ok) throw new Error(`GraphQL HTTP ${res.status}`);
+
   const json = await res.json();
   if (json.errors) throw new Error(JSON.stringify(json.errors, null, 2));
   return json.data;
@@ -30,7 +32,6 @@ function streakFromDailyCounts(dailyCounts) {
   let longest = 0;
 
   for (const x of dailyCounts) total += x.count;
-
   let run = 0;
   for (const x of dailyCounts) {
     if (x.count > 0) run++;
@@ -69,16 +70,31 @@ function sparklinePath(values, width, height, pad = 8) {
 
 function svgCard({ total, current, longest, series }) {
   const W = 900;
-  const H = 180;
+  const H = 220;
 
-  const sparkW = 240;
+  const pad = 10;
+  const radius = 18;
+
+  const colLeftX = 48;
+  const colMidX = 340; 
+  const colRightX = 640;
+
+  const topY = 62;
+
+  const ringR = 44;
+  const ringStroke = 10;
+
+  const sparkW = 220; 
   const sparkH = 52;
   const sparkD = sparklinePath(series, sparkW, sparkH, 6);
 
-  const ringCirc = 2 * Math.PI * 44; // r=44
+  const ringCirc = 2 * Math.PI * ringR;
   const ratio =
     Math.min(1, current / Math.max(1, longest || current || 1)) || 0;
   const dash = `${(ratio * ringCirc).toFixed(2)} ${ringCirc.toFixed(2)}`;
+
+  const divTop = 44;
+  const divBottom = 176;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub stats card">
@@ -98,45 +114,49 @@ function svgCard({ total, current, longest, series }) {
     </filter>
   </defs>
 
-  <rect x="10" y="10" width="${W - 20}" height="${H - 20}" rx="18" fill="url(#bg)" stroke="#1F2937" filter="url(#shadow)"/>
+  <rect x="${pad}" y="${pad}" width="${W - pad * 2}" height="${
+    H - pad * 2
+  }" rx="${radius}" fill="url(#bg)" stroke="#1F2937" filter="url(#shadow)"/>
 
-  <!-- Left -->
-  <g transform="translate(48,52)">
-    <text x="0" y="0" fill="#93C5FD" font-size="34" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${total.toLocaleString(
+  <!-- Left: Total -->
+  <g transform="translate(${colLeftX},${topY})">
+    <text x="0" y="0" fill="#93C5FD" font-size="32" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${total.toLocaleString(
       "en-US"
     )}</text>
     <text x="0" y="28" fill="#9CA3AF" font-size="14" font-family="ui-sans-serif, system-ui">Total Contributions</text>
   </g>
 
-  <!-- Middle ring -->
-  <g transform="translate(360,34)">
-    <circle cx="56" cy="56" r="44" stroke="#1F2937" stroke-width="10"/>
-    <circle cx="56" cy="56" r="44" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"
+  <!-- Middle: Ring -->
+  <g transform="translate(${colMidX},50)">
+    <circle cx="56" cy="56" r="${ringR}" stroke="#1F2937" stroke-width="${ringStroke}"/>
+    <circle cx="56" cy="56" r="${ringR}" stroke="url(#accent)" stroke-width="${ringStroke}" stroke-linecap="round"
       stroke-dasharray="${dash}"
       transform="rotate(-90 56 56)"/>
-    <text x="56" y="62" text-anchor="middle" fill="#E5E7EB" font-size="30" font-weight="700"
+    <text x="56" y="62" text-anchor="middle" fill="#E5E7EB" font-size="28" font-weight="700"
       font-family="ui-sans-serif, system-ui">${current}</text>
-    <text x="56" y="90" text-anchor="middle" fill="#9CA3AF" font-size="14"
+    <text x="56" y="94" text-anchor="middle" fill="#9CA3AF" font-size="14"
       font-family="ui-sans-serif, system-ui">Current Streak</text>
   </g>
 
-  <line x1="300" y1="40" x2="300" y2="140" stroke="#1F2937"/>
-  <line x1="600" y1="40" x2="600" y2="140" stroke="#1F2937"/>
+  <!-- Dividers -->
+  <line x1="300" y1="${divTop}" x2="300" y2="${divBottom}" stroke="#1F2937"/>
+  <line x1="600" y1="${divTop}" x2="600" y2="${divBottom}" stroke="#1F2937"/>
 
-  <!-- Right -->
-  <g transform="translate(648,52)">
-    <text x="0" y="0" fill="#93C5FD" font-size="34" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${longest.toLocaleString(
+  <!-- Right: Longest + Sparkline -->
+  <g transform="translate(${colRightX},${topY})">
+    <text x="0" y="0" fill="#93C5FD" font-size="32" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">${longest.toLocaleString(
       "en-US"
     )}</text>
     <text x="0" y="28" fill="#9CA3AF" font-size="14" font-family="ui-sans-serif, system-ui">Longest Streak</text>
 
-    <g transform="translate(0,46)">
+    <g transform="translate(0,52)">
       <rect x="0" y="0" width="${sparkW}" height="${sparkH}" rx="12" fill="#0B1220" stroke="#1F2937"/>
       <path d="${sparkD}" stroke="url(#accent)" stroke-width="2.6" fill="none"/>
     </g>
   </g>
 
-  <g transform="translate(48,132)">
+  <!-- Footer badge -->
+  <g transform="translate(48,178)">
     <rect x="0" y="0" rx="999" ry="999" width="220" height="30" fill="#0B1220" stroke="#1F2937"/>
     <text x="14" y="20" fill="#9CA3AF" font-size="12" font-family="ui-sans-serif, system-ui">Auto-updated via GitHub Actions</text>
   </g>
