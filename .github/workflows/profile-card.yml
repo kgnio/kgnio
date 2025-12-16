@@ -30,9 +30,16 @@ jobs:
           GH_USERNAME: ${{ github.repository_owner }}
         run: node scripts/generate-card.mjs
 
-      - name: Commit & push if changed
+          - name: Commit & push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add assets/stats-card.svg
-          git diff --cached --quiet || (git commit -m "chore: update stats card" && git push)
+          git diff --cached --quiet && exit 0
+
+          git commit -m "chore: update stats card"
+
+          git pull --rebase origin main
+
+          git push
