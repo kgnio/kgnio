@@ -10,6 +10,10 @@ I write code that helps other developers write better code.
 
 ---
 
+![GitHub Stats Card](./assets/stats-card.svg)
+
+---
+
 ## 🔥 What I’m Focused On
 - 🚀 Building **clean, scalable full-stack applications**  
 - 🛠️ Automating **GitHub workflows** (forking, PRs, CI/CD, Docker)  
