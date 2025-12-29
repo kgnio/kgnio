@@ -10,7 +10,7 @@ I write code that helps other developers write better code.
 
 ---
 
-<img src="https://raw.githubusercontent.com/kgnio/kgnio/main/assets/stats-card.svg" width="100%" />
+![GitHub Profile Stats](https://kgnio-profile-card.vercel.app/api/card?user=kgnio)
 
 ---
 
