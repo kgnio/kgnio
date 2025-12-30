@@ -10,7 +10,7 @@ I write code that helps other developers write better code.
 
 ---
 
-![GitHub Profile Stats](https://kgnio-profile-card.vercel.app/api/card?user=kgnio&theme=ice)
+![GitHub Profile Stats](https://kgnio-profile-card.vercel.app/api/card?user=kgnio&theme=midnight)
 
 ---
 
