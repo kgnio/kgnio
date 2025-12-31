@@ -40,22 +40,22 @@
 <line x1="12" y1="48.00" x2="328.00" y2="48.00" stroke="#1F2937" opacity="0.55"/>
 <line x1="12" y1="66.00" x2="328.00" y2="66.00" stroke="#1F2937" opacity="0.55"/>
 <line x1="12" y1="84.00" x2="328.00" y2="84.00" stroke="#1F2937" opacity="0.55"/>
-      <path d="M 12.00 26.40 L 22.90 52.80 L 33.79 74.40 L 44.69 26.40 L 55.59 48.00 L 66.48 74.40 L 77.38 74.40 L 88.28 12.00 L 99.17 40.80 L 110.07 33.60 L 120.97 60.00 L 131.86 48.00 L 142.76 67.20 L 153.66 74.40 L 164.55 31.20 L 175.45 24.00 L 186.34 50.40 L 197.24 55.20 L 208.14 45.60 L 219.03 74.40 L 229.93 74.40 L 240.83 74.40 L 251.72 72.00 L 262.62 69.60 L 273.52 62.40 L 284.41 55.20 L 295.31 74.40 L 306.21 64.80 L 317.10 38.40 L 328.00 79.20 L 328.00 84.00 L 12.00 84.00 Z" fill="url(#chartFill)"/>
-      <path d="M 12.00 26.40 L 22.90 52.80 L 33.79 74.40 L 44.69 26.40 L 55.59 48.00 L 66.48 74.40 L 77.38 74.40 L 88.28 12.00 L 99.17 40.80 L 110.07 33.60 L 120.97 60.00 L 131.86 48.00 L 142.76 67.20 L 153.66 74.40 L 164.55 31.20 L 175.45 24.00 L 186.34 50.40 L 197.24 55.20 L 208.14 45.60 L 219.03 74.40 L 229.93 74.40 L 240.83 74.40 L 251.72 72.00 L 262.62 69.60 L 273.52 62.40 L 284.41 55.20 L 295.31 74.40 L 306.21 64.80 L 317.10 38.40 L 328.00 79.20" stroke="url(#accent)" stroke-width="2.6" fill="none"/>
+      <path d="M 12.00 52.80 L 22.90 74.40 L 33.79 26.40 L 44.69 48.00 L 55.59 74.40 L 66.48 74.40 L 77.38 12.00 L 88.28 40.80 L 99.17 33.60 L 110.07 60.00 L 120.97 48.00 L 131.86 67.20 L 142.76 74.40 L 153.66 31.20 L 164.55 24.00 L 175.45 50.40 L 186.34 55.20 L 197.24 45.60 L 208.14 74.40 L 219.03 74.40 L 229.93 74.40 L 240.83 72.00 L 251.72 69.60 L 262.62 62.40 L 273.52 55.20 L 284.41 74.40 L 295.31 64.80 L 306.21 38.40 L 317.10 55.20 L 328.00 81.60 L 328.00 84.00 L 12.00 84.00 Z" fill="url(#chartFill)"/>
+      <path d="M 12.00 52.80 L 22.90 74.40 L 33.79 26.40 L 44.69 48.00 L 55.59 74.40 L 66.48 74.40 L 77.38 12.00 L 88.28 40.80 L 99.17 33.60 L 110.07 60.00 L 120.97 48.00 L 131.86 67.20 L 142.76 74.40 L 153.66 31.20 L 164.55 24.00 L 175.45 50.40 L 186.34 55.20 L 197.24 45.60 L 208.14 74.40 L 219.03 74.40 L 229.93 74.40 L 240.83 72.00 L 251.72 69.60 L 262.62 62.40 L 273.52 55.20 L 284.41 74.40 L 295.31 64.80 L 306.21 38.40 L 317.10 55.20 L 328.00 81.60" stroke="url(#accent)" stroke-width="2.6" fill="none"/>
       <text x="12" y="86" fill="#6B7280" font-size="11" font-family="ui-sans-serif, system-ui">Last 30 days</text>
       <text x="328" y="18" text-anchor="end" fill="#6B7280" font-size="11" font-family="ui-sans-serif, system-ui">max 30</text>
     </g>
 
     <g transform="translate(0,134)">
       <text x="0" y="0" fill="#E5E7EB" font-size="30" font-weight="800"
-            font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">1,225</text>
+            font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">1,236</text>
 
       <text x="104" y="0" fill="#9CA3AF" font-size="14" font-weight="600"
         font-family="ui-sans-serif, system-ui">Total contributions</text>
 
 
       <text x="0" y="30" fill="#6B7280" font-size="12" font-family="ui-sans-serif, system-ui">Last active</text>
-      <text x="74" y="30" fill="#E5E7EB" font-size="12" font-weight="650" font-family="ui-sans-serif, system-ui">2025-12-30</text>
+      <text x="74" y="30" fill="#E5E7EB" font-size="12" font-weight="650" font-family="ui-sans-serif, system-ui">2025-12-31</text>
     </g>
   </g>
 
@@ -66,13 +66,13 @@
       transform="rotate(-90 590 108)"/>
 
     <text x="590" y="124" text-anchor="middle" fill="#E5E7EB"
-      font-size="40" font-weight="850" font-family="ui-sans-serif, system-ui">119</text>
+      font-size="40" font-weight="850" font-family="ui-sans-serif, system-ui">120</text>
 
     <text x="590" y="182" text-anchor="middle" fill="#9CA3AF"
-      font-size="14" font-family="ui-sans-serif, system-ui">119-day commit streak</text>
+      font-size="14" font-family="ui-sans-serif, system-ui">120-day commit streak</text>
 
     <text x="590" y="202" text-anchor="middle" fill="#6B7280"
-      font-size="12" font-family="ui-sans-serif, system-ui">Coding consistently for 119 days in a row.</text>
+      font-size="12" font-family="ui-sans-serif, system-ui">Coding consistently for 120 days in a row.</text>
   </g>
 
   <g transform="translate(776,66)">
@@ -94,7 +94,7 @@
             </svg>
         </g>
         <text x="30" y="0" fill="#22C55E" font-size="14.5" font-weight="650" font-family="ui-sans-serif, system-ui">Total Commits:</text>
-        <text x="186" y="0" fill="#86EFAC" font-size="14.5" font-weight="850" font-family="ui-sans-serif, system-ui">677</text>
+        <text x="186" y="0" fill="#86EFAC" font-size="14.5" font-weight="850" font-family="ui-sans-serif, system-ui">687</text>
        </g>
 
         <g transform="translate(0,64)">
