@@ -14,7 +14,7 @@ I write code that helps other developers write better code.
 
 ---
 
-![GitHub Profile Card](https://raw.githubusercontent.com/kgnio/github-profile-stats-card/main/public/card.svg?v=1767595469?v=1767579035?v=1767551660?v=1767530963?v=1767508652?v=1767492654?v=1767465235?v=1767444509?v=1767422187?v=1767405279?v=1767378955?v=1767358232?v=1767335972?v=1767319272?v=1767292556?v=1767271893?v=1767249553?v=1767233391?v=1767206098?v=1767189313?v=1767188065?v=1767187185?v=1767185489?v=1767180690?v=1767179724)
+![GitHub Profile Card](https://raw.githubusercontent.com/kgnio/github-profile-stats-card/main/public/card.svg?v=20716716306)
 
 ---
 
