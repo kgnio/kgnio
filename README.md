@@ -83,13 +83,15 @@ Other     : Git · Linux · Bash · REST APIs · Webhooks · CI/CD
         </p>
       </td>
       <td width="50%" style="vertical-align: top; padding: 12px;">
-        <h3>🤖 GitHub Automation Bot</h3>
+        <h3>📊 GitHub Profile Stats Card</h3>
         <p>
-          A bot that automates forks, PR creation, branch syncing and workflow triggers.<br />
-          Built to reduce “GitHub busywork” for maintainers.
+          A customizable GitHub profile stats card generator.<br />
+          Built to display profile statistics with cute, polished and themeable designs.
         </p>
         <p>
-          <em>Public release planned as a polished open-source tool.</em>
+          <a href="https://github.com/kgnio/github-profile-stats-card">
+            🔗 <strong>View on GitHub</strong>
+          </a>
         </p>
       </td>
     </tr>
