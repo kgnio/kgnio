@@ -89,8 +89,8 @@ Other     : Git · Linux · Bash · REST APIs · Webhooks · CI/CD
           Built to display profile statistics with cute, polished and themeable designs.
         </p>
         <p>
-          <a href="https://github.com/kgnio/github-profile-stats-card">
-            🔗 <strong>View on GitHub</strong>
+          <a href="https://kgnio-profile-card.vercel.app/">
+            🔗 <strong>View on Production</strong>
           </a>
         </p>
       </td>
