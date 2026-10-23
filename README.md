@@ -38,12 +38,12 @@ Other     : Git · Linux · Bash · REST APIs · Webhooks · CI/CD
 
 ---
 
-## 💣 Bomberman Contributions
+## 🌱 Contribution Garden
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kgnio/kgnio/output/bomberman-contribution-graph-dark.svg" />
-    <img alt="Bomberman contribution animation" src="https://raw.githubusercontent.com/kgnio/kgnio/output/bomberman-contribution-graph.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kgnio/github-contribution-garden/output/contribution-garden-dark.svg" />
+    <img alt="My GitHub contribution garden" src="https://raw.githubusercontent.com/kgnio/github-contribution-garden/output/contribution-garden.svg" />
   </picture>
 </div>
 
