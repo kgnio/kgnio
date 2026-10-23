@@ -1,0 +1,31 @@
+name: Generate Pac-Man Animation 👾
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # UTC 00:00, Türkiye saatiyle 03:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Generate Pac-Man SVGs
+        uses: abozanona/pacman-contribution-graph@main
+        with:
+          github_user_name: kgnio
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          games: pacman
+
+      - name: Deploy to output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+          keep_history: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
