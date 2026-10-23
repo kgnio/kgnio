@@ -42,12 +42,12 @@ Other     : Git · Linux · Bash · REST APIs · Webhooks · CI/CD
 
 ---
 
-## 👾 Pac-Man Contributions
+## 💣 Bomberman Contributions
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kgnio/kgnio/output/pacman-contribution-graph-dark.svg" />
-    <img alt="Pac-Man contribution animation" src="https://raw.githubusercontent.com/kgnio/kgnio/output/pacman-contribution-graph.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kgnio/kgnio/output/bomberman-contribution-graph-dark.svg" />
+    <img alt="Bomberman contribution animation" src="https://raw.githubusercontent.com/kgnio/kgnio/output/bomberman-contribution-graph.svg" />
   </picture>
 </div>
 
